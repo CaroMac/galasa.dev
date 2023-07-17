@@ -5,28 +5,11 @@ title: "Initialising your local environment by using the CLI"
 
 To start using Galasa tools, or running Galasa tests, you need to set up some basic file structures and files in your home folder. These files include a default bootstrap file, and some local properties files. For more information about these files and what they are used for, see the [About the properties files](#about) section. 
 
-The following section shows you how to initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM. 
+The following sections show you how to initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. You initialise the home folder by using the `local init` command to set up the folders and files that you need to start running Galasa tests. You can view the full list of options (flags) that are available with the `local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
-You can view the full list of options (flags) that are available with the `local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
+Once your home folder is initialised, you can start creating Galasa projects and running Galasa tests on your local JVM. 
+For more information about these tasks, see the [Creating a Galasa project](../writing-own-tests/setting-up-galasa-project.md) and [Running tests locally using the command line](../cli-command-reference/runs-submit-local.md) documentation.
 
-
-## Setting the Galasa bootstrap 
-
-Most Galasa CLI commands need a reference to the Galasa bootstrap file or URL. You can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the `--bootstrap` option takes precedence.
-
-You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://my-bootstrap-url`, use the following command:
-
-On Mac or Unix:
-
-``` 
-export GALASA_BOOTSTRAP=http://my-bootstrap-url
-```
-
-On Windows: 
-
-``` 
-set GALASA_BOOTSTRAP=http://my-bootstrap-url
-```
 
 ## Initialising the Galasa home folder
 
@@ -35,7 +18,6 @@ To initialise your Galasa home folder in your home directory along with the prop
 ```
 galasactl local init
 ```
-
 
 This one-time command is run once per user and helps you to quickly create the folder and files that you need. If you already have a Galasa home folder set up, the folder and files are not created. 
 
@@ -95,5 +77,18 @@ The `settings.xml` file enables you to set configurations for Maven to use durin
 
 If you have Maven installed, and have run a Maven command, an `/.m2` folder, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` folder, and populates the file with basic configuration settings.
 
+## Getting help
+
+Use the following command to get more information about the command and command options, including default values.
+
+```
+galasactl --help
+```
+
+Use the following options to send logging information to a file. Any folder that is referrenced must exist. Existing files are overwritten. Specify `-` to log to `stderr`. The default is no logging.
+
+```
+galasactl --log <logFilePath>  
+```  
 
 

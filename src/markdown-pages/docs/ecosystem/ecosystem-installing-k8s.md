@@ -77,9 +77,16 @@ helm test <release-name>
 ```
 When the `helm test` command ends and displays a success message, the Ecosystem is set up correctly and is ready to be used.
 
-## Running Galasa tests
+## About the Galasa bootstrap 
 
-To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework to connect to an ecosystem. To find the URL of the ecosystem bootstrap, run the following command:
+To configure Galasa to point to your Galasa Ecosystem, you need to edit the Galasa bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework to connect to an ecosystem. If you are using the Galasa CLI, then most of the CLI commands also need a reference to the Galasa bootstrap file or URL.
+
+In Eclipse, you can edit the bootstrap by selecting *Eclipse > Preferences > Galasa* from the Eclipse menu. 
+
+If you are using the Galasa CLI, you can set the bootstrap either by specifying the `--bootstrap` option on the CLI command itself, or by setting the `GALASA_BOOTSTRAP` environment variable. Setting the Galasa bootstrap environment variable means that you do not need to explicitly set the bootstrap as an option each time you run a Galasa CLI command. If both are provided, the `--bootstrap` option takes precedence.
+
+
+To find the URL of the ecosystem bootstrap, run the following command:
 ```
 kubectl get svc
 ```
@@ -90,9 +97,25 @@ test-api-external  NodePort  10.107.160.208  <none>  \
 ```
 Combine the information with the external hostname that you provided to form the bootstrap URL. For example, if the external hostname you provided was `example.com`, the bootstrap URL is `http://example.com:30960/boostrap`. 
 
-In Eclipse, you can edit the bootstrap by selecting *Eclipse > Preferences > Galasa* from the Eclipse menu. Alternatively, you can enter the bootstrap URL in the ```--bootstrap``` option of a `galasctl` command.
 
-You can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on writing tests, see the <a href=https://galasa.dev/docs/writing-own-tests> Writing your own independent Galasa tests</a> documentation.
+
+## Setting the Galasa bootstrap environment variable
+
+
+You can set the Galasa bootstrap environment variable on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://my-bootstrap-url`, use the following command:
+
+On Mac or Unix:
+
+``` 
+export GALASA_BOOTSTRAP=http://my-bootstrap-url
+```
+
+On Windows: 
+
+``` 
+set GALASA_BOOTSTRAP=http://my-bootstrap-url
+```
+
 
 ## Upgrading the Galasa Ecosystem
 
