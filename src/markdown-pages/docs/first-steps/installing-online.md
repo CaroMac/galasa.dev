@@ -77,12 +77,12 @@ dss.properties
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <pluginGroups>
         <pluginGroup>dev.galasa</pluginGroup>
     </pluginGroups>
+     
     <profiles>
         <profile>
             <id>galasa</id>
@@ -91,18 +91,30 @@ dss.properties
             </activation>
             <repositories>
                 <repository>
-                    <id>galasa.repo</id>
-                    <url>https://nexus.galasa.dev/repository/master</url>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
                 </repository>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <repository>
+                    <id>galasa.repo</id>
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </repository>
+                -->
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>galasa.repo</id>
-                    <url>https://nexus.galasa.dev/repository/master</url>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
                 </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <pluginRepository>
+                    <id>galasa.repo</id>    
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </pluginRepository>
+                -->
+             </pluginRepositories>
+         </profile>
+     </profiles>
 </settings>
 ```
 
@@ -110,7 +122,7 @@ dss.properties
 1. Choose _Window > Preferences_ and then _Maven > User Settings_.
 1. Complete the _Global Setting_ field by pressing _Browse_ and navigating to the `settings.xml` file you just set up. Press _Apply_ and _Close_ when finished.
 1. Choose _Window > Preferences > Galasa_ 
-1. Complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
+1. Complete the _Remote Maven URI_ field as `https://repo.maven.apache.org/maven2/`
 1. Click _Apply and Close_. -->
 
 Your local Eclipse Galasa installation is now ready for some work. Start by [exploring Galasa Simbank](/docs/getting-started/simbank) to help you to learn about the Galasa basics. 

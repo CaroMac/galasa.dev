@@ -176,7 +176,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: | Value URL |
-| Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
+| Examples: | <code>galasaecosystem.maven.repository=https://repo.maven.apache.org/maven2/</code> |
 
 </details>
  
